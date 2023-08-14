@@ -11,7 +11,7 @@
 	<groupId>de.martin701</groupId>
 	<artifactId>hometaskmanager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>hometaskmanager</name>
 	<description>Home Task Manager</description>
 	<properties>
@@ -105,6 +105,24 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.amashchenko.maven.plugin</groupId>
+				<artifactId>gitflow-maven-plugin</artifactId>
+				<version>1.20.0</version>
+				<configuration>
+					<gitFlowConfig>
+						<productionBranch>master</productionBranch>
+						<developmentBranch>develop</developmentBranch>
+						<featureBranchPrefix>feature/</featureBranchPrefix>
+						<releaseBranchPrefix>release/</releaseBranchPrefix>
+						<hotfixBranchPrefix>hotfix/</hotfixBranchPrefix>
+						<supportBranchPrefix>support/</supportBranchPrefix>
+						<versionTagPrefix></versionTagPrefix>
+						<origin>origin</origin>
+						<featureSquash>true</featureSquash>
+					</gitFlowConfig>
 				</configuration>
 			</plugin>
 		</plugins>
