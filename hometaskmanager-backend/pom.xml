@@ -38,10 +38,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-quartz</artifactId>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -113,13 +113,13 @@
 				<version>1.20.0</version>
 				<configuration>
 					<gitFlowConfig>
-						<productionBranch>master</productionBranch>
+						<productionBranch>main</productionBranch>
 						<developmentBranch>develop</developmentBranch>
 						<featureBranchPrefix>feature/</featureBranchPrefix>
 						<releaseBranchPrefix>release/</releaseBranchPrefix>
 						<hotfixBranchPrefix>hotfix/</hotfixBranchPrefix>
 						<supportBranchPrefix>support/</supportBranchPrefix>
-						<versionTagPrefix></versionTagPrefix>
+						<!--<versionTagPrefix></versionTagPrefix>-->
 						<origin>origin</origin>
 						<featureSquash>true</featureSquash>
 					</gitFlowConfig>

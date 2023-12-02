@@ -9,6 +9,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "temp_table")
 public class TempTable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
