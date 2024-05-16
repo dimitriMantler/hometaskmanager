@@ -1,0 +1,19 @@
+CREATE TABLE `task` (
+	`id` INT NULL AUTO_INCREMENT,
+	`list_id` INT NULL DEFAULT NULL,
+	`project_id` INT NULL DEFAULT NULL,
+	`name` VARCHAR(50) NULL DEFAULT NULL,
+	`description` VARCHAR(250) NULL DEFAULT NULL,
+	`priority` VARCHAR(20) NULL DEFAULT NULL,
+	`start_date` DATETIME NULL DEFAULT NULL,
+	`end_date` DATETIME NULL DEFAULT NULL,
+	`create_date` DATETIME NULL DEFAULT NULL,
+	`create_user_name` VARCHAR(50) NULL DEFAULT NULL,
+	`create_user_id` INT NULL DEFAULT NULL,
+	`change_date` DATETIME NULL DEFAULT NULL,
+	`change_user_name` VARCHAR(50) NULL DEFAULT NULL,
+	`Spalte change_user_id` INT NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8mb4_general_ci'
+;

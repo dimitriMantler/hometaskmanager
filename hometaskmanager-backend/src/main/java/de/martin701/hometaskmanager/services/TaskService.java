@@ -5,11 +5,13 @@ import de.martin701.hometaskmanager.entities.Task;
 import de.martin701.hometaskmanager.models.TaskModel;
 import de.martin701.hometaskmanager.repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class TaskService {
 
     @Autowired
@@ -31,10 +33,10 @@ public class TaskService {
         return TaskDto.updateTaskValues(oldTask, newTask);
     }
 
-    public boolean save(Task task){
+    public Task save(Task task){
         TaskModel taskModel = TaskDto.writeModel(task);
-        taskRepository.save(taskModel);
-        return true;
+        taskModel = taskRepository.save(taskModel);
+        return TaskDto.writeEntity(taskModel);
     }
 
     public List<String> checkValidity(Task task){

@@ -14,13 +14,13 @@ public class TaskModel extends GeneralModel{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private int id;
 
     @Column(name = "list_id")
-    private Long listId;
+    private Integer listId;
 
     @Column(name = "project_id")
-    private Long projectId;
+    private Integer projectId;
 
     @Column(name = "name")
     private String name;

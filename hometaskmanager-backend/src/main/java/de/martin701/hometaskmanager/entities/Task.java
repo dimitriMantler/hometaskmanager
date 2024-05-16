@@ -9,9 +9,9 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class Task {
-    private long id;
-    private Long listId;
-    private Long projectId;
+    private int id;
+    private Integer listId;
+    private Integer projectId;
     private String name;
     private String description;
     private String priority;
