@@ -1,4 +1,4 @@
-package de.martin701.hometaskmanager.exception;
+package de.martin701.hometaskmanager.exceptions;
 
 public class ResourceNotFoundException extends Exception{
 

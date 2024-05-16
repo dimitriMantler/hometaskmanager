@@ -1,6 +1,6 @@
-package de.martin701.hometaskmanager.repository;
+package de.martin701.hometaskmanager.repositories;
 
-import de.martin701.hometaskmanager.entity.TempTable;
+import de.martin701.hometaskmanager.entities.TempTable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

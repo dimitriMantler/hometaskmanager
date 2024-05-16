@@ -7,4 +7,9 @@
    - Git for Windows
    - Maven
  - create backendproject with Spring Initilizr
- 
+
+05.03.2024
+===========
+- Run Springboot-Application with internal Tomcat 
+  - cd .\hometaskmanager-backend\ 
+  - .\mvnw.cmd spring-boot:run

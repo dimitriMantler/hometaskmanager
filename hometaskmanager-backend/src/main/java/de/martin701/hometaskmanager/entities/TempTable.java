@@ -1,4 +1,4 @@
-package de.martin701.hometaskmanager.entity;
+package de.martin701.hometaskmanager.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
