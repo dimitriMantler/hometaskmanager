@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class TaskModel extends GeneralModel{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "list_id")
