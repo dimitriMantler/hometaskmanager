@@ -42,14 +42,12 @@ public class TaskService {
 
     public List<String> checkValidity(Task task){
         List<String> problems = new ArrayList<>();
-        //check Field Sizes
-
-        //
+        //TODO check Field Sizes
         return problems;
     }
 
     public boolean delete(Task task){
-        TaskModel taskModel = TaskDto.writeModel(task);
+        TaskModel taskModel = TaskDto.writeModel(task, GeneralDto.Action.CHANGE);
         taskRepository.delete(taskModel);
         return true;
     }
