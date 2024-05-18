@@ -1,9 +1,13 @@
 package de.martin701.hometaskmanager.models;
 
 import jakarta.persistence.Column;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
 public abstract class GeneralModel {
     @Column(name = "create_date")
     private LocalDateTime createDate;
@@ -12,7 +16,7 @@ public abstract class GeneralModel {
     private String createUserName;
 
     @Column(name = "create_user_id")
-    private Long createUserId;
+    private Integer createUserId;
 
     @Column(name = "change_date")
     private LocalDateTime changeDate;
@@ -21,5 +25,5 @@ public abstract class GeneralModel {
     private String changeUserName;
 
     @Column(name = "change_user_id")
-    private Long changeUserId;
+    private Integer changeUserId;
 }

@@ -1,5 +1,6 @@
 package de.martin701.hometaskmanager.services;
 
+import de.martin701.hometaskmanager.dto.GeneralDto;
 import de.martin701.hometaskmanager.dto.TaskDto;
 import de.martin701.hometaskmanager.entities.Task;
 import de.martin701.hometaskmanager.models.TaskModel;
@@ -34,7 +35,7 @@ public class TaskService {
     }
 
     public Task save(Task task){
-        TaskModel taskModel = TaskDto.writeModel(task);
+        TaskModel taskModel = TaskDto.writeModel(task, GeneralDto.Action.CREATE);
         taskModel = taskRepository.save(taskModel);
         return TaskDto.writeEntity(taskModel);
     }

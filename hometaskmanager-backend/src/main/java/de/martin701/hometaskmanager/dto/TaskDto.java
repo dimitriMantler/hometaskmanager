@@ -3,11 +3,11 @@ package de.martin701.hometaskmanager.dto;
 import de.martin701.hometaskmanager.entities.Task;
 import de.martin701.hometaskmanager.models.TaskModel;
 
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TaskDto {
+public class TaskDto extends GeneralDto<Task, TaskModel>{
 
     public static List<Task> writeEntities(List<TaskModel> models){
         List<Task> entities = null;
@@ -32,6 +32,24 @@ public class TaskDto {
         task.setProjectId(model.getProjectId());
         task.setStartDate(model.getStartDate());
         return task;
+    }
+
+    //TODO set userId and UserName if available
+    public static TaskModel writeModel(Task task, GeneralDto.Action action){
+        TaskModel model = writeModel(task);
+        switch (action){
+            case CREATE -> {
+                model.setCreateDate(LocalDateTime.now());
+                model.setCreateUserId(0);
+                model.setCreateUserName("DM");
+            }
+            case CHANGE -> {
+                model.setChangeDate(LocalDateTime.now());
+                model.setChangeUserId(0);
+                model.setChangeUserName("DM");
+            }
+        }
+        return model;
     }
 
     public static TaskModel writeModel(Task task){
