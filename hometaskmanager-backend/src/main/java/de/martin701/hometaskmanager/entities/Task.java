@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class Task {
+public class Task extends GeneralEntity{
     private int id;
     private Integer listId;
     private Integer projectId;
