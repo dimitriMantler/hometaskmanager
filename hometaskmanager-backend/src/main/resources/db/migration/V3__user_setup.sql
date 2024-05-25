@@ -1,0 +1,18 @@
+CREATE TABLE `user` (
+	`id` INT NULL AUTO_INCREMENT,
+	`username` VARCHAR(50) NULL DEFAULT NULL,
+	`password` VARCHAR(60) NULL DEFAULT NULL,
+	`first_name` VARCHAR(60) NULL DEFAULT NULL,
+	`last_name` VARCHAR(60) NULL DEFAULT NULL,
+	`avatar` VARCHAR(250) NULL DEFAULT NULL,
+	`last_login` DATETIME NULL DEFAULT NULL,
+	`create_date` DATETIME NULL DEFAULT NULL,
+	`create_user_name` VARCHAR(50) NULL DEFAULT NULL,
+	`create_user_id` INT NULL DEFAULT NULL,
+	`change_date` DATETIME NULL DEFAULT NULL,
+	`change_user_name` VARCHAR(50) NULL DEFAULT NULL,
+	`change_user_id` INT NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8mb4_general_ci'
+;

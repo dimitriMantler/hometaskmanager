@@ -1,6 +1,5 @@
 package de.martin701.hometaskmanager.entities;
 
-import jakarta.persistence.Column;
 import lombok.Getter;
 import lombok.Setter;
 

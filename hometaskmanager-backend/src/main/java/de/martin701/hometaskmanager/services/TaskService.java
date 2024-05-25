@@ -18,26 +18,28 @@ public class TaskService {
     @Autowired
     private TaskRepository taskRepository;
 
+    private final TaskDto dto = new TaskDto();
+
     public List<Task> findAll(){
-        return TaskDto.writeEntities(taskRepository.findAll());
+        return dto.writeEntities(taskRepository.findAll());
     }
 
     public Task findById(Long id){
         Optional<TaskModel> model = taskRepository.findById(id);
         if(model.isPresent())
-            return TaskDto.writeEntity(model.get());
+            return dto.writeEntity(model.get());
         else
             return null;
     }
 
     public Task updateTask(Task oldTask, Task newTask){
-        return TaskDto.updateTaskValues(oldTask, newTask);
+        return dto.updateEntityValues(oldTask, newTask);
     }
 
     public Task save(Task task){
-        TaskModel taskModel = TaskDto.writeModel(task, GeneralDto.Action.CREATE);
+        TaskModel taskModel = dto.writeModel(task, GeneralDto.Action.CREATE);
         taskModel = taskRepository.save(taskModel);
-        return TaskDto.writeEntity(taskModel);
+        return dto.writeEntity(taskModel);
     }
 
     public List<String> checkValidity(Task task){
@@ -47,7 +49,7 @@ public class TaskService {
     }
 
     public boolean delete(Task task){
-        TaskModel taskModel = TaskDto.writeModel(task, GeneralDto.Action.CHANGE);
+        TaskModel taskModel = dto.writeModel(task, GeneralDto.Action.CHANGE);
         taskRepository.delete(taskModel);
         return true;
     }
