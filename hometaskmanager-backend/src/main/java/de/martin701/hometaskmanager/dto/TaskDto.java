@@ -5,6 +5,8 @@ import de.martin701.hometaskmanager.models.TaskModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import java.util.Optional;
+
 public class TaskDto extends GeneralDto<Task, TaskModel, TaskDto.TaskEntityConverter> {
 
     public TaskDto() {
@@ -13,13 +15,13 @@ public class TaskDto extends GeneralDto<Task, TaskModel, TaskDto.TaskEntityConve
 
     @Override
     public Task updateEntityValues(Task task, Task newTaskValues) {
-        if (newTaskValues.getDescription() != null) task.setDescription(newTaskValues.getDescription());
-        if (newTaskValues.getName() != null) task.setName(newTaskValues.getName());
-        if (newTaskValues.getPriority() != null) task.setPriority(newTaskValues.getPriority());
-        if (newTaskValues.getStartDate() != null) task.setStartDate(newTaskValues.getStartDate());
-        if (newTaskValues.getEndDate() != null) task.setEndDate(newTaskValues.getEndDate());
-        if (newTaskValues.getListId() != null) task.setListId(newTaskValues.getListId());
-        if (newTaskValues.getProjectId() != null) task.setProjectId(newTaskValues.getProjectId());
+        Optional.ofNullable(newTaskValues.getDescription()).ifPresent(task::setDescription);
+        Optional.ofNullable(newTaskValues.getName()).ifPresent(task::setName);
+        Optional.ofNullable(newTaskValues.getPriority()).ifPresent(task::setPriority);
+        Optional.ofNullable(newTaskValues.getStartDate()).ifPresent(task::setStartDate);
+        Optional.ofNullable(newTaskValues.getEndDate()).ifPresent(task::setEndDate);
+        Optional.ofNullable(newTaskValues.getListId()).ifPresent(task::setListId);
+        Optional.ofNullable(newTaskValues.getProjectId()).ifPresent(task::setProjectId);
         return task;
     }
 
