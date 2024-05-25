@@ -5,28 +5,13 @@ import de.martin701.hometaskmanager.models.TaskModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import java.util.List;
+public class TaskDto extends GeneralDto<Task, TaskModel, TaskDto.TaskEntityConverter> {
 
-public class TaskDto extends GeneralDto<Task, TaskModel>{
-
-    private final TaskEntityConverter CONVERTER = Mappers.getMapper(TaskEntityConverter.class);
-
-    public List<Task> writeEntities(List<TaskModel> models) {
-        return super.writeEntities(models, CONVERTER);
+    public TaskDto() {
+        super(Mappers.getMapper(TaskEntityConverter.class));
     }
 
-    public List<TaskModel> writeModels(List<Task> tasks, Action action) {
-        return super.writeModels(tasks, action, CONVERTER);
-    }
-
-    public Task writeEntity(TaskModel model) {
-        return super.writeEntity(model, CONVERTER);
-    }
-
-    public TaskModel writeModel(Task task, Action action) {
-        return super.writeModel(task, action, CONVERTER);
-    }
-
+    @Override
     public Task updateEntityValues(Task task, Task newTaskValues) {
         if (newTaskValues.getDescription() != null) task.setDescription(newTaskValues.getDescription());
         if (newTaskValues.getName() != null) task.setName(newTaskValues.getName());

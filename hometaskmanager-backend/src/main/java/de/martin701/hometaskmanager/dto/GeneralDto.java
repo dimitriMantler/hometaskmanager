@@ -13,26 +13,31 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public abstract class GeneralDto<E extends GeneralEntity, M extends GeneralModel> implements DtoInterface<E, M> {
+public abstract class GeneralDto<E extends GeneralEntity, M extends GeneralModel, C extends GeneralDto.EntityConverter<E, M>> implements DtoInterface<E, M> {
+
+    protected final C converter;
+
+    public GeneralDto(C converter) {
+        this.converter = converter;
+    }
 
     public enum Action {
         CREATE, CHANGE
     }
 
-    public <E extends GeneralEntity, M extends GeneralModel> List<E> writeEntities(List<M> models, EntityConverter<E, M> converter) {
+    public List<E> writeEntities(List<M> models) {
         return models.stream().map(converter::toEntity).collect(Collectors.toList());
     }
 
-    public <E extends GeneralEntity, M extends GeneralModel> List<M> writeModels(List<E> entities, Action action, EntityConverter<E, M> converter) {
-        return entities.stream().map(entity -> writeModel(entity, action, converter)).collect(Collectors.toList());
+    public List<M> writeModels(List<E> entities, Action action) {
+        return entities.stream().map(entity -> writeModel(entity, action)).collect(Collectors.toList());
     }
 
-    public <E extends GeneralEntity, M extends GeneralModel> E writeEntity(M model, EntityConverter<E, M> converter) {
-        E entity = converter.toEntity(model);
-        return entity;
+    public E writeEntity(M model) {
+        return converter.toEntity(model);
     }
 
-    public <E extends GeneralEntity, M extends GeneralModel> M writeModel(E entity, Action action, EntityConverter<E, M> converter) {
+    public M writeModel(E entity, Action action) {
         M model = converter.toModel(entity);
         switch (action) {
             case CREATE -> {
@@ -48,6 +53,8 @@ public abstract class GeneralDto<E extends GeneralEntity, M extends GeneralModel
         }
         return model;
     }
+
+    public abstract E updateEntityValues(E entity, E newValues);
 
     public interface EntityConverter<E, M> {
         E toEntity(M model);
@@ -70,5 +77,4 @@ public abstract class GeneralDto<E extends GeneralEntity, M extends GeneralModel
         }
         return 0;
     }
-
 }
