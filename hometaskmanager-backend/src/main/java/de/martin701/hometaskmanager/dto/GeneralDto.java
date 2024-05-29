@@ -44,6 +44,7 @@ public abstract class GeneralDto<E extends GeneralEntity, M extends GeneralModel
                 model.setCreateDate(LocalDateTime.now());
                 model.setCreateUserId(getCurrentUserId());
                 model.setCreateUserName(getCurrentUserName());
+                //TODO evtl. integrierter break?
             }
             case CHANGE -> {
                 model.setChangeDate(LocalDateTime.now());
