@@ -13,10 +13,6 @@ import java.time.LocalDateTime;
 @Setter
 public abstract class GeneralModel {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
     @Column(name = "create_date")
     private LocalDateTime createDate;
 

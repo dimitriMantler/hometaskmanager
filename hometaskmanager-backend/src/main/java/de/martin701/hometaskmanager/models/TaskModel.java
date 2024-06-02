@@ -12,6 +12,10 @@ import java.time.LocalDateTime;
 @Table(name = "task")
 public class TaskModel extends GeneralModel{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     @Column(name = "list_id")
     private Integer listId;
 

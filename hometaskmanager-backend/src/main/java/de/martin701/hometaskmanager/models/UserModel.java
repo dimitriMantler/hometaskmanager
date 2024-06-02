@@ -12,6 +12,10 @@ import java.time.LocalDateTime;
 @Table(name = "user")
 public class UserModel extends GeneralModel{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     @Column(name = "username")
     private String username;
 
