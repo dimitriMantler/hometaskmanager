@@ -1,9 +1,9 @@
 package de.martin701.hometaskmanager.dto;
 
-import de.martin701.hometaskmanager.security.CustomUserDetails;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
+//import de.martin701.hometaskmanager.security.CustomUserDetails;
+//import org.springframework.security.core.Authentication;
+//import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.security.core.userdetails.UserDetails;
 
 import de.martin701.hometaskmanager.entities.GeneralEntity;
 import de.martin701.hometaskmanager.interfaces.DtoInterface;
@@ -63,19 +63,19 @@ public abstract class GeneralDto<E extends GeneralEntity, M extends GeneralModel
     }
 
     private String getCurrentUserName() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
-            return ((UserDetails) authentication.getPrincipal()).getUsername();
-        }
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
+//            return ((UserDetails) authentication.getPrincipal()).getUsername();
+//        }
         return "unknown";
     }
 
     private int getCurrentUserId() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
-            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-            return ((CustomUserDetails) userDetails).getId();
-        }
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
+//            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+//            return ((CustomUserDetails) userDetails).getId();
+//        }
         return 0;
     }
 }
